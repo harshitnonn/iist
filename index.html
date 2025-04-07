@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisanmart - Your Online Farm Fresh Market</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+
+                <img src="image/kisan.png" alt="KisanMart Logo" id="site-logo" style="height: 50px;">
+
+                <h1></h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search fresh produce...">
+                <button class="button" id="search-button"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="user-actions">
+                <div class="dropdown">
+                    <a href="#" class="color"><i class="fas fa-user"></i> My Account</a>
+                    <div class="dropdown-content">
+                        <a href="#" id="profile-link">Profile</a>
+                        <a href="#" id="order-history-link">Order History</a>
+                        <a href="#" id="wishlist-link">Wishlist</a>
+                        <a href="#" id="logout-link">Logout</a>
+                    </div>
+                </div>
+                <a href="#" id="cart-link" class="color"><i class="fas fa-shopping-cart"></i> My Cart</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="color home-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" class="color">Fruits</a></li>
+                <li><a href="#" class="color">Vegetables</a></li>
+                <li><a href="#" class="color">Pulses</a></li>
+                <li><a href="#" class="color">Grains</a></li>
+                <li class="blink-text"><a href="#" id="live-bidding-link"><i class="fas fa-bullhorn"></i> Live Bidding</a></li>
+                <li><a href="#" id="about-us-link" class="color"><i class="fas fa-info-circle"></i> About Us</a></li>
+                 <li><a href="#" id="contact-us-link" class="color"><i class="fas fa-phone"></i> Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Filter by Category</h3>
+            <ul id="category-list">
+                <li><a href="#" data-category="all">All Products</a></li>
+                <li><a href="#" data-category="fruits">Fruits</a></li>
+                <li><a href="#" data-category="vegetables">Vegetables</a></li>
+                <li><a href="#" data-category="pulses">Pulses</a></li>
+                <li><a href="#" data-category="grains">Grains</a></li>
+            </ul>
+            <h3>Sort By</h3>
+            <select id="sort-options">
+                <option value="default">Default Sorting</option>
+                <option value="price-low-to-high">Price: Low to High</option>
+                <option value="price-high-to-low">Price: High to Low</option>
+                <option value="name-a-z">Name: A to Z</option>
+                <option value="name-z-a">Name: Z to A</option>
+            </select>
+        </aside>
+        <main class="product-grid" id="product-list">
+
+            </main>
+    </div>
+    <footer>
+        <p>&copy; 2025 Kisanmart. All rights reserved.</p>
+    </footer>
+    <div id="product-details" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="product-name">Product Name</h2>
+            <src="image/kisan.png" alt="Capsicum">
+
+            <div class="details-right">
+                <p id="product-price" class="price"></p>
+                <p id="product-description"></p>
+                <button class="add-to-cart" id="add-to-cart-details"><i class="fas fa-shopping-basket"></i> Add to Cart</button>
+                <button class="add-to-wishlist" id="add-to-wishlist-details"><i class="fas fa-heart"></i> Add to Wishlist</button>
+            </div>
+            <p class="description" id="product-long-description"></p>
+        </div>
+    </div>
+    <div id="cart-page" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                </div>
+            <div id="cart-summary">
+                Total: ₹<span id="cart-total">0.00</span>
+            </div>
+            <button id="cart-checkout">Checkout</button>
+        </div>
+    </div>
+    <div id="wishlist-page" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Your Wishlist</h2>
+            <div id="wishlist-items">
+                </div>
+        </div>
+    </div>
+    <div id="profile-page" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Your Profile</h2>
+            <form id="profile-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="john.doe@example.com">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" value="123-456-7890">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="123 Main St">
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+    </div>
+    <div id="order-history-page" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Your Order History</h2>
+            <div id="order-history-list">
+                </div>
+        </div>
+    </div>
+    <div id="live-bidding-page" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Live Bidding</h2>
+            <div id="live-bidding-list">
+                </div>
+        </div>
+    </div>
+    <div id="about-us-page" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>About us</h2>
+            <p>Welcome to Kisanmart, your online marketplace for fresh, high-quality agricultural products! We connect farmers directly with consumers, ensuring fair prices and reducing the time and distance between the farm and your table.</p>
+            <h3>Our Mission</h3>
+            <p>Our mission is to empower farmers by providing them with a platform to sell their produce directly to a wider audience. We aim to offer consumers the freshest produce at competitive prices while supporting sustainable farming practices.</p>
+            <h3>Our Products</h3>
+            <p>We offer a wide variety of farm-fresh products, including:</p>
+            <ul>
+                <li>Fruits</li>
+                <li>Vegetables</li>
+                <li>Pulses</li>
+                <li>Grains</li>
+                <li>And much more!</li>
+            </ul>
+            <h3>Why Choose Kisanmart?</h3>
+            <ul>
+                <li><b>Freshness Guaranteed:</b> We work directly with farmers to ensure the freshest produce.</li>
+                <li><b>Fair Prices:</b> We offer competitive prices for both farmers and consumers.</li>
+                <li><b>Wide Selection:</b> Choose from a wide variety of high-quality products.</li>
+                <li><b>Convenience:</b> Shop from the comfort of your home and get your produce delivered to your doorstep.</li>
+                <li><b>Support Farmers:</b> Your purchases support local farmers and sustainable agriculture.</li>
+            </ul>
+            <p>Thank you for choosing Kisanmart. We are committed to providing you with the best online farming market experience!</p>
+        </div>
+    </div>
+
+    <div id="contact-us-page" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Contact Us</h2>
+            <p>Get in touch with us using the form below or via the provided contact information.</p>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <h3>Our Contact Information</h3>
+            <p><strong>Address:</strong> 123 Kisanmart Street, Indore, MP 452001, India</p>
+            <p><strong>Phone:</strong> +91 1234567890</p>
+            <p><strong>Email:</strong> support@kisanmart.com</p>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
