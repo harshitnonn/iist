@@ -12,7 +12,9 @@
     </style>
 </head>
 <body>
-    <header>
+    <header> 
+
+        
         <div class="top-bar">
             <div class="logo">
 
@@ -193,6 +195,14 @@
         </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./script.js">
+       
+  // Redirect to login if not logged in
+  const user = localStorage.getItem('kisanmartUser');
+  if (!user) {
+    window.location.href = 'login.html';
+  }
+
+    </script>
 </body>
 </html>

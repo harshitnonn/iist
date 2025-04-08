@@ -45,6 +45,18 @@ const searchButton = document.getElementById('search-button');
 
 let selectedProductId = null;
 
+
+
+function getLoggedInUser() {
+    const user = localStorage.getItem('kisanmartUser');
+    return user ? JSON.parse(user) : null;
+  }
+  
+  function logoutUser() {
+    localStorage.removeItem('kisanmartUser');
+    window.location.href = 'login.html';
+  }
+  
 // Function to render product list
 function renderProductList(productsToRender) {
     productList.innerHTML = '';
